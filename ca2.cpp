@@ -58,6 +58,65 @@ void printArrayat(int at[], int size)
 		cout<<at[i]<<endl; 
 	}
     } 
+    //FOR SJF
+    void swapbtsjf(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+  
+// A function to implement bubble sort 
+void bubbleSortbtsjf(int bt[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (j = 0; j < n-i-1; j++)  
+           if (bt[j] > bt[j+1]) 
+              swapbtsjf(&bt[j], &bt[j+1]); 
+} 
+  
+/* Function to print an array */
+void printArraybtsjf(int bt[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        {
+		cout<<bt[i]<<endl; 
+	}
+    }
+  
+  void swapatsjf(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+  
+// A function to implement bubble sort 
+void bubbleSortatsjf(int at[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (j = 0; j < n-i-1; j++)  
+           if (at[j] > at[j+1]) 
+              swapatsjf(&at[j], &at[j+1]); 
+} 
+  
+//Function to print an array 
+void printArrayatsjf(int at[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        {
+		cout<<at[i]<<endl; 
+	}
+    } 
+    
 void WaitingTime(int bt[], int n, int wt[]) 
 { 
     wt[0] = 0;  
@@ -105,7 +164,7 @@ void findavgTime(int bt[], int at[], int n)
 
 int main()
 {
-	int n;
+	int n,s;
 	cout<<"Enter the Total number of processes you want to run:-";
 	cin>>n;
 	
@@ -120,11 +179,32 @@ int main()
 	{
 		at[i]=0.5*bt[i];
 	}
+	printf("Enter Choice \n1)FCFS \n2)SJF \n");
+	scanf("%d",&s);
+	switch(s)
+	{
+	case 1:  //FCFS with highest burst time
      //sorting burst time in descending order using bubble sort
-    bubbleSortbt(bt, n); 
+    {
+	bubbleSortbt(bt, n); 
     bubbleSortat(at, n); 
     printf("Order of execution according to burst time:-\n"); 
     printArraybt(bt, n); 
     printArrayat(at, n);
-    findavgTime(bt ,at ,n); 
+    findavgTime(bt ,at ,n);
+	break; 
+    }
+    case 2:  //SJF
+    {
+    bubbleSortbtsjf(bt, n); 
+    bubbleSortatsjf(at, n); 
+    printf("Order of execution according to burst time:-\n"); 
+    printArraybtsjf(bt, n); 
+    printArrayatsjf(at, n);
+    findavgTime(bt ,at ,n);
+	break; 	
+	}
+	default:
+		printf("ENTER CORRECT CHOICE !!!");
+}
 }
