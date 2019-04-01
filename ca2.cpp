@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+#include<stdio.h> 
+
 //swapping two numbers
 void swapbt(int *xp, int *yp) 
 { 
@@ -26,7 +26,7 @@ void printArraybt(int bt[], int size)
     int i; 
     for (i=0; i < size; i++) 
         {
-		cout<<bt[i]<<endl; 
+		printf("%d\n",bt[i]);  
 	}
     }
   
@@ -55,7 +55,7 @@ void printArrayat(int at[], int size)
     int i; 
     for (i=0; i < size; i++) 
         {
-		cout<<at[i]<<endl; 
+		printf("%d\n",at[i]); 
 	}
     } 
     //FOR SJF
@@ -84,7 +84,7 @@ void printArraybtsjf(int bt[], int size)
     int i; 
     for (i=0; i < size; i++) 
         {
-		cout<<bt[i]<<endl; 
+		printf("%d\n",bt[i]); 
 	}
     }
   
@@ -113,50 +113,48 @@ void printArrayatsjf(int at[], int size)
     int i; 
     for (i=0; i < size; i++) 
         {
-		cout<<at[i]<<endl; 
+		printf("%d\n",at[i]); 
 	}
     } 
     
 void WaitingTime(int bt[], int n, int wt[]) 
-{ 
+{ int i;
     wt[0] = 0;  
-    for (int i = 1; i < n ; i++ ) 
+    for (i = 1; i < n ; i++ ) 
         wt[i] = bt[i-1] + wt[i-1]  ; 
 } 
   
 void TurnAroundTime(int bt[], int n, int wt[], int tat[]) 
-{ 
-    for (int i = 0; i < n ; i++) 
+{ int i;
+    for (i = 0; i < n ; i++) 
         tat[i] = bt[i] + wt[i]; 
 } 
 
 //Avg Time
 void findavgTime(int bt[], int at[], int n) 
 { 
-    int wt[n], tat[n], total_wt = 0, total_tat = 0; 
+    int wt[n], tat[n], total_wt = 0, total_tat = 0,i; 
     //Waiting time
     WaitingTime(bt,n,wt); 
     //Turn around time
     TurnAroundTime(bt,n,wt,tat); 
   
     // Display processes along with all details 
-    cout <<"\nArrival Time"<<" Burst time "
-         << " Waiting time " << " Turn around time\n"; 
+    printf("\nArrival Time  Burst time  Waiting time  Turn around time\n"); 
   
     // Calculate total waiting time and total turn around time 
-    for (int i = 0; i < n; i++) 
+    for (i = 0; i < n; i++) 
     { 
         total_wt = total_wt + wt[i]; 
         total_tat = total_tat + tat[i]; 
-        cout << " " << at[i] << "\t\t"
+        printf(" %d\t\t %d \t %d \t\t %d\n",at[i],bt[i],wt[i],tat[i]);
+        /*cout << " " << at[i] << "\t\t"    
              << bt[i] << "\t " << wt[i] 
-             << "\t\t " << tat[i] <<endl; 
+             << "\t\t " << tat[i] <<endl; */
     } 
   
-    cout << "Average waiting time = "
-         << (float)total_wt / (float)n; 
-    cout << "\nAverage turn around time = "
-         << (float)total_tat / (float)n; 
+    printf("Average waiting time = %f",(float)total_wt / (float)n);
+    printf("\nAverage turn around time = %f",(float)total_tat / (float)n); 
 } 
 
 
@@ -164,18 +162,17 @@ void findavgTime(int bt[], int at[], int n)
 
 int main()
 {
-	int n,s;
-	cout<<"Enter the Total number of processes you want to run:-";
-	cin>>n;
-	
-	int at[20],bt[20],p[20],p1[20],wt[20],tat[20];
-	cout<<"Enter Burst time\n";
-	for(int i=0;i<n;i++)
+	int n,s,i;
+	printf("Enter the Total number of processes you want to run:-");
+	scanf("%d",&n);
+	int at[20],bt[20],wt[20],tat[20];
+	printf("Enter Burst time\n");
+	for(i=0;i<n;i++)
 	{
-		cout<<i+1<<":-";
-        cin>>bt[i];
+		printf("%d:-",i+1);
+        scanf("%d",&bt[i]);
 	}
-	for(int i=0;i<n;i++)
+	for(i=0;i<n;i++)
 	{
 		at[i]=0.5*bt[i];
 	}
@@ -205,6 +202,6 @@ int main()
 	break; 	
 	}
 	default:
-		printf("ENTER CORRECT CHOICE !!!");
+		printf("ENTER CORRECT CHOICE !!! Thank you");
 }
 }
