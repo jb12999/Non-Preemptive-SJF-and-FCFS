@@ -1,7 +1,7 @@
 #include<stdio.h> 
 
 //swapping two numbers
-void swapbt(int *xp, int *yp) 
+/*void swapbt(int *xp, int *yp) 
 { 
     int temp = *xp; 
     *xp = *yp; 
@@ -21,7 +21,7 @@ void bubbleSortbt(int bt[], int n)
 } 
   
 /* Function to print an array */
-void printArraybt(int bt[], int size) 
+/*void printArraybt(int bt[], int size) 
 { 
     int i; 
     for (i=0; i < size; i++) 
@@ -57,7 +57,7 @@ void printArrayat(int at[], int size)
         {
 		printf("%d\n",at[i]); 
 	}
-    } 
+    } */
     //FOR SJF
     void swapbtsjf(int *xp, int *yp) 
 { 
@@ -180,7 +180,7 @@ int main()
 	scanf("%d",&s);
 	switch(s)
 	{
-	case 1:  //FCFS with highest burst time
+	/*case 1:  //FCFS with highest burst time
      //sorting burst time in descending order using bubble sort
     {
 	bubbleSortbt(bt, n); 
@@ -190,7 +190,7 @@ int main()
     printArrayat(at, n);
     findavgTime(bt ,at ,n);
 	break; 
-    }
+    }*/
     case 2:  //SJF
     {
     bubbleSortbtsjf(bt, n); 
@@ -203,5 +203,6 @@ int main()
 	}
 	default:
 		printf("ENTER CORRECT CHOICE !!! Thank you");
+		
 }
 }
